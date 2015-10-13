@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package onpcalc;
 
 import stack.Stack;
@@ -13,15 +8,11 @@ import stack.Stack;
  */
 public class ONPcalc {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void count(String[] input) throws Stack.EmptyStackException {
 
         Stack stos = new Stack();
 
-        for (String expr : args) {
+        for (String expr : input) {
             System.out.println("Argument: " + expr);
 
             Double number = null;
@@ -29,6 +20,7 @@ public class ONPcalc {
             try {
                 number = Double.parseDouble(expr);
             } catch (Exception e) {
+                System.out.println("Wyrażenie nie może być przetworzone: " + expr);
             }
 
             if (number != null) {
@@ -54,6 +46,16 @@ public class ONPcalc {
                 stos.put(first / second);
             }
         }
+    }
+
+    public static void main(String[] args) {
+        
+        try {
+            count(args);
+        } catch (Stack.EmptyStackException ex) {
+            System.out.println("Zła składnia: za mało liczb / za dużo operacji");
+        }
+
     }
 
 }
