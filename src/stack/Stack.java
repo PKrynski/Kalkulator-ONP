@@ -40,23 +40,6 @@ public class Stack {
         }
     }
 
-    public static void main(String[] args) {
-
-        Stack stos = new Stack();
-
-        for (int i = 1; i < 10; i++) {
-            stos.put(i);
-            System.out.println("Dodano: " + (double) i);
-        }
-
-        double wartosc;
-        for (int i = 1; i < 10; i++) {
-            wartosc = stos.get();
-            System.out.println("Zdjeto: " + wartosc);
-        }
-
-    }
-
     private class Pair {
 
         double value;
