@@ -15,10 +15,10 @@ public class Stack {
         head = newitem;
     }
 
-    public double get() {
+    public double get() throws EmptyStackException {
 
         if (this.isEmpty()) {
-
+            throw new EmptyStackException();
         }
 
         double itemvalue = head.value;
@@ -42,12 +42,13 @@ public class Stack {
 
     private class Pair {
 
-        double value;
-        Pair next;
+        private double value;
+        private Pair next;
 
         public Pair(double value) {
             this.value = value;
             this.next = null;
         }
     }
+
 }
